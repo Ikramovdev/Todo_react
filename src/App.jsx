@@ -4,8 +4,9 @@ import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
 function App() {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [])
 
+  localStorage.setItem("todos",JSON.stringify(todos))
   return (
     <>
       <TodoForm setTodos={setTodos} todos={todos}/>
